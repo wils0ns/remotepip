@@ -31,7 +31,7 @@ class RemotePip:
         self.username = username
         self.port = port
         self.password = password
-        self.pkey_file_path = os.path.expanduser(pkey_file_path)
+        self.pkey_file_path = pkey_file_path
         self.b64_key = b64_key
 
         self.ssh_client = self._connect()
@@ -49,7 +49,8 @@ class RemotePip:
         ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
         if self.pkey_file_path:
-            private_key = paramiko.RSAKey.from_private_key_file(self.pkey_file_path, password=self.password)
+            pkey_file_path = os.path.expanduser(self.pkey_file_path)
+            private_key = paramiko.RSAKey.from_private_key_file(pkey_file_path, password=self.password)
         elif self.b64_key:
             decoded_key = base64.b64decode(self.b64_key)
             decoded_key = decoded_key.decode("utf-8")
