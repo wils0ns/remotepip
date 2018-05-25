@@ -3,7 +3,7 @@ image: alpine
 run pylint:
   stage: test
   script:
-    - apk --no-cache add py2-pip python-dev build-base libffi-dev libssl-dev libxml2-dev libxslt1-dev libjpeg8-dev zlib1g-dev
+    - apk --no-cache add py2-pip python-dev build-base libffi-dev libssl-dev
     - pip install -r requirements.txt
     - pip install -e .
     - python tests/run_pylint.py
@@ -11,7 +11,7 @@ run pylint:
 create docs page:
   stage: deploy
   script:
-    - apk --no-cache add py2-pip python-dev
+    - apk --no-cache add py2-pip python-dev build-base libffi-dev libssl-dev
     - apk --no-cache add make
     - pip install -r requirements.txt
     - pip install -e .
