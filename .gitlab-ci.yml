@@ -6,7 +6,7 @@ run pylint:
     - apk --no-cache add make py3-pip python3-dev gcc musl-dev libffi-dev openssl-dev
     - pip3 install -r requirements.txt
     - pip3 install -e .
-    - python tests/run_pylint.py
+    - python3 tests/run_pylint.py
 
 create docs page:
   stage: deploy
@@ -27,7 +27,7 @@ publish to pypi:
   script:
     - apk --no-cache add make py3-pip python3-dev gcc musl-dev libffi-dev openssl-dev
     - pip3 install twine
-    - python setup.py sdist
+    - python3 setup.py sdist
     - twine upload dist/*
   artifacts:
     paths:
