@@ -18,20 +18,16 @@ setup(
     author='Wilson Santos',
     author_email='wilson@codeminus.org',
     url='https://gitlab.com/cathaldallan/remotepip',
-    description='Saltypie - salt-api wrapper and return parser',
+    description='Remote pip package management.',
     long_description=README,
     license='MIT',
-    keywords='saltstack salt salt-api wrapper',
+    keywords='remote pip',
     classifiers=[
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3'
     ],
     packages=find_packages(exclude=['docs', 'tests']),
     install_requires=[
-        'requests',
-        'terminaltables',
-        'colorclass',
-        'colorama',
-        'termcolor',
+        'paramiko',
     ],
 )
