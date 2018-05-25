@@ -1,9 +1,9 @@
 from remotepip import RemotePip
 
 rpip = RemotePip(
-    host='163.185.33.8',
-    username='drillops',
-    pkey_file_path='~/.ssh/planckbuilder.id_rsa'
+    host='10.10.0.10',
+    username='myuser',
+    pkey_file_path='~/.ssh/mykey.id_rsa'
 )
 
 rpip.install('saltypie')
